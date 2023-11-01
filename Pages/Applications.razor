@@ -1,0 +1,50 @@
+﻿@page "/applications"
+@using GDSwithUI.Data
+@using GdsApi;
+@inject GdsServiceApplications GdsService
+
+<PageTitle>Applications</PageTitle>
+
+<h1>Applications</h1>
+
+<p>All Applications registered at the GDS.</p>
+
+@if (applications.Count == 0)
+{
+    <p><em>No Applications registered yet</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Application Name</th>
+                <th>Application Id</th>
+                <th>Application Type</th>
+                <th>ApplicationUri</th>
+                <th>Certificate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var application in applications)
+            {
+                <tr>
+                    <td>@application.ApplicationName</td>
+                    <td>@application.ApplicationId</td>
+                    <td>@application.ApplicationType</td>
+                    <td>@application.ApplicationUri</td>
+                    <td>@application.Certificate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ApplicationApiModel> applications = new List<ApplicationApiModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        applications = new List<ApplicationApiModel>(await GdsService.GetApplicationsAllAsync());
+    }
+}

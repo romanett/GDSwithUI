@@ -1,0 +1,46 @@
+﻿@page "/CertificateGroups"
+@using GDSwithUI.Data
+@using GdsApi;
+@inject GdsServiceCerts GdsService
+
+<PageTitle>Certificate Groups</PageTitle>
+
+<h1>Certificate Groups</h1>
+
+<p>All Certificate Groups created on the GDS.</p>
+
+@if (certificteGroups.Count == 0)
+{
+    <p><em>No certificateGroups created on the GDS</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Update Required</th>
+                <th>Certificate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var certificteGroup in certificteGroups)
+            {
+                <tr>
+                    <td>@certificteGroup.Id</td>
+                    <td>@certificteGroup.UpdateRequired</td>
+                    <td>@certificteGroup.Ceritificate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<CertificateGroupApiModel> certificteGroups = new List<CertificateGroupApiModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        certificteGroups = new List<CertificateGroupApiModel>(await GdsService.GetCertificateGroupsAsync());
+    }
+}
