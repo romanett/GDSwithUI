@@ -1,7 +1,6 @@
 ﻿@page "/CertificateGroups"
-@using GDSwithUI.Data
 @using GdsApi;
-@inject GdsServiceCerts GdsService
+@inject ICertificateGroupsGdsApi CertificateGroupsGdsApi
 
 <PageTitle>Certificate Groups</PageTitle>
 
@@ -41,6 +40,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        certificteGroups = new List<CertificateGroupApiModel>(await GdsService.GetCertificateGroupsAsync());
+        certificteGroups = new List<CertificateGroupApiModel>(await CertificateGroupsGdsApi.GetCertificateGroupsAsync());
     }
 }

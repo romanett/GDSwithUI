@@ -1,8 +1,6 @@
 using GdsApi;
-using GDSwithUI.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,15 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient();
-builder.Services.AddScoped<GdsServiceApplications>();
-builder.Services.AddScoped<GdsServiceCerts>();
+builder.Services.AddScoped<IApplicationsGdsApi, ApplicationsGdsApi>();
+builder.Services.AddScoped<ICertificateGroupsGdsApi, CertificateGroupsGdsApi>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseMigrationsEndPoint();
+    
 }
 else
 {

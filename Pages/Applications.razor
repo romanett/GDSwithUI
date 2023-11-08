@@ -1,7 +1,6 @@
 ﻿@page "/applications"
-@using GDSwithUI.Data
 @using GdsApi;
-@inject GdsServiceApplications GdsService
+@inject IApplicationsGdsApi ApplicationsGdsApi
 
 <PageTitle>Applications</PageTitle>
 
@@ -45,6 +44,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        applications = new List<ApplicationApiModel>(await GdsService.GetApplicationsAllAsync());
+        applications = new List<ApplicationApiModel>(await ApplicationsGdsApi.GetApplicationsAllAsync());
     }
 }
