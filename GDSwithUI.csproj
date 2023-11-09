@@ -31,5 +31,7 @@
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="cd ./GdsApi&#xD;&#xA;del GdsApi.cs" />
   </Target>
+	
+  <ProjectExtensions><VisualStudio><UserProperties gdsapi_4swagger_1json__JsonSchema="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

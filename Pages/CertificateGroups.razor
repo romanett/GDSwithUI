@@ -1,4 +1,4 @@
-﻿@page "/CertificateGroups"
+﻿@page "/certificate-groups"
 @using GdsApi;
 @inject ICertificateGroupsGdsApi CertificateGroupsGdsApi
 
@@ -26,7 +26,7 @@ else
             @foreach (var certificteGroup in certificteGroups)
             {
                 <tr>
-                    <td>@certificteGroup.Id</td>
+                    <td><a href="/certificate-group/@certificteGroup.Id">@certificteGroup.Id</a></td>
                     <td>@certificteGroup.UpdateRequired</td>
                     <td>@certificteGroup.Ceritificate</td>
                 </tr>

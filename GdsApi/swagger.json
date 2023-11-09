@@ -16,6 +16,7 @@
         "tags": [
           "Applications"
         ],
+        "summary": "Returns all registered applications",
         "operationId": "Applications_GetApplicationsAll",
         "responses": {
           "200": {
@@ -49,6 +50,7 @@
         "tags": [
           "Applications"
         ],
+        "summary": "Returns the specified Application",
         "operationId": "Applications_GetApplications",
         "parameters": [
           {
@@ -91,6 +93,7 @@
         "tags": [
           "Applications"
         ],
+        "summary": "Register a new Application at the GDS",
         "operationId": "Applications_RegisterApplication",
         "requestBody": {
           "x-name": "applicationRaw",
@@ -126,6 +129,7 @@
         "tags": [
           "Applications"
         ],
+        "summary": "unregister an exisiting Application from the OPC UA GDS",
         "operationId": "Applications_DeleteApplications",
         "parameters": [
           {
@@ -161,6 +165,7 @@
         "tags": [
           "CertificateGroups"
         ],
+        "summary": "Returns all Certificate Groups of the GDS",
         "operationId": "CertificateGroups_GetCertificateGroups",
         "responses": {
           "200": {
@@ -184,6 +189,7 @@
         "tags": [
           "CertificateGroups"
         ],
+        "summary": "Returns the CA Certificate of the specified Certificate Group",
         "operationId": "CertificateGroups_GetCertificateGroupCA",
         "parameters": [
           {
@@ -223,6 +229,7 @@
         "tags": [
           "CertificateGroups"
         ],
+        "summary": "Regenerate the CA Certificate of the specified Certificate Group",
         "operationId": "CertificateGroups_PostCertificateGroupCA",
         "parameters": [
           {
@@ -264,6 +271,7 @@
         "tags": [
           "CertificateGroups"
         ],
+        "summary": "Returns the TrustList of the specified certificate Group",
         "operationId": "CertificateGroups_GetCertificateGroupTrustList",
         "parameters": [
           {
@@ -308,6 +316,7 @@
         "tags": [
           "CertificateGroups"
         ],
+        "summary": "revoke the specified Certifice in the specified Certificate Group",
         "operationId": "CertificateGroups_RevokeCertificateGroupCert",
         "parameters": [
           {
@@ -352,26 +361,30 @@
     "schemas": {
       "ApplicationApiModel": {
         "type": "object",
+        "description": "A GDS registered Application",
         "additionalProperties": false,
         "properties": {
           "applicationId": {
             "type": "string",
+            "description": "The Guid identifying the Application",
             "format": "guid"
           },
           "applicationUri": {
-            "type": "string"
+            "type": "string",
+            "description": "The Uri of the Application"
           },
           "applicationName": {
-            "type": "string"
+            "type": "string",
+            "description": "The name of the Application"
           },
           "applicationType": {
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/schemas/ApplicationType"
           },
           "productUri": {
             "type": "string"
           },
           "certificate": {
+            "description": "The gds signed certificate of the Application",
             "nullable": true,
             "oneOf": [
               {
@@ -381,8 +394,25 @@
           }
         }
       },
+      "ApplicationType": {
+        "type": "integer",
+        "description": "Type of the registered OPC UA Application",
+        "x-enumNames": [
+          "Server",
+          "Client",
+          "ClientAndServer",
+          "DiscoveryServer"
+        ],
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
       "X509CertificateApiModel": {
         "type": "object",
+        "description": "A X509 Certificate",
         "additionalProperties": false,
         "properties": {
           "subject": {
@@ -405,6 +435,9 @@
             "nullable": true
           },
           "certificate": {
+            "type": "string"
+          },
+          "issuer": {
             "type": "string"
           }
         }
@@ -440,10 +473,11 @@
       },
       "CertificateGroupApiModel": {
         "type": "object",
+        "description": "Certificate Group of the GDS",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "integer"
+            "$ref": "#/components/schemas/CertificateGroupType"
           },
           "updateRequired": {
             "type": "boolean"
@@ -457,6 +491,20 @@
             ]
           }
         }
+      },
+      "CertificateGroupType": {
+        "type": "integer",
+        "description": "Type of the Certificate Group",
+        "x-enumNames": [
+          "DefaultApplicationGroup",
+          "DefaultHttpsGroup",
+          "DefaultUserTokenGroup"
+        ],
+        "enum": [
+          615,
+          649,
+          683
+        ]
       }
     }
   }

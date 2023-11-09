@@ -28,7 +28,7 @@ else
             @foreach (var application in applications)
             {
                 <tr>
-                    <td>@application.ApplicationName</td>
+                    <td><a href="/application/@application.ApplicationId">@application.ApplicationName</a> </td>
                     <td>@application.ApplicationId</td>
                     <td>@application.ApplicationType</td>
                     <td>@application.ApplicationUri</td>

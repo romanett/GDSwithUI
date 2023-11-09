@@ -20,31 +20,55 @@ namespace GdsApi
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial interface IApplicationsGdsApi
     {
+        /// <summary>
+        /// Returns all registered applications
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ApplicationApiModel>> GetApplicationsAllAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns all registered applications
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ApplicationApiModel>> GetApplicationsAllAsync(System.Threading.CancellationToken cancellationToken);
 
+        /// <summary>
+        /// Returns the specified Application
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<ApplicationApiModel> GetApplicationsAsync(System.Guid id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns the specified Application
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<ApplicationApiModel> GetApplicationsAsync(System.Guid id, System.Threading.CancellationToken cancellationToken);
 
+        /// <summary>
+        /// Register a new Application at the GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<ApplicationApiModel> RegisterApplicationAsync(ApplicationApiModel applicationRaw);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Register a new Application at the GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<ApplicationApiModel> RegisterApplicationAsync(ApplicationApiModel applicationRaw, System.Threading.CancellationToken cancellationToken);
 
+        /// <summary>
+        /// unregister an exisiting Application from the OPC UA GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task DeleteApplicationsAsync(System.Guid id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// unregister an exisiting Application from the OPC UA GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task DeleteApplicationsAsync(System.Guid id, System.Threading.CancellationToken cancellationToken);
 
@@ -84,6 +108,9 @@ namespace GdsApi
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
 
+        /// <summary>
+        /// Returns all registered applications
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ApplicationApiModel>> GetApplicationsAllAsync()
         {
@@ -91,6 +118,9 @@ namespace GdsApi
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns all registered applications
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ApplicationApiModel>> GetApplicationsAllAsync(System.Threading.CancellationToken cancellationToken)
         {
@@ -166,6 +196,9 @@ namespace GdsApi
             }
         }
 
+        /// <summary>
+        /// Returns the specified Application
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<ApplicationApiModel> GetApplicationsAsync(System.Guid id)
         {
@@ -173,6 +206,9 @@ namespace GdsApi
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns the specified Application
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<ApplicationApiModel> GetApplicationsAsync(System.Guid id, System.Threading.CancellationToken cancellationToken)
         {
@@ -252,6 +288,9 @@ namespace GdsApi
             }
         }
 
+        /// <summary>
+        /// Register a new Application at the GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<ApplicationApiModel> RegisterApplicationAsync(ApplicationApiModel applicationRaw)
         {
@@ -259,6 +298,9 @@ namespace GdsApi
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Register a new Application at the GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<ApplicationApiModel> RegisterApplicationAsync(ApplicationApiModel applicationRaw, System.Threading.CancellationToken cancellationToken)
         {
@@ -337,6 +379,9 @@ namespace GdsApi
             }
         }
 
+        /// <summary>
+        /// unregister an exisiting Application from the OPC UA GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task DeleteApplicationsAsync(System.Guid id)
         {
@@ -344,6 +389,9 @@ namespace GdsApi
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// unregister an exisiting Application from the OPC UA GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task DeleteApplicationsAsync(System.Guid id, System.Threading.CancellationToken cancellationToken)
         {
@@ -523,38 +571,68 @@ namespace GdsApi
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial interface ICertificateGroupsGdsApi
     {
+        /// <summary>
+        /// Returns all Certificate Groups of the GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CertificateGroupApiModel>> GetCertificateGroupsAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns all Certificate Groups of the GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CertificateGroupApiModel>> GetCertificateGroupsAsync(System.Threading.CancellationToken cancellationToken);
 
+        /// <summary>
+        /// Returns the CA Certificate of the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<X509CertificateApiModel> GetCertificateGroupCAAsync(int id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns the CA Certificate of the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<X509CertificateApiModel> GetCertificateGroupCAAsync(int id, System.Threading.CancellationToken cancellationToken);
 
+        /// <summary>
+        /// Regenerate the CA Certificate of the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<X509CertificateApiModel> PostCertificateGroupCAAsync(int id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Regenerate the CA Certificate of the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<X509CertificateApiModel> PostCertificateGroupCAAsync(int id, System.Threading.CancellationToken cancellationToken);
 
+        /// <summary>
+        /// Returns the TrustList of the specified certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<X509CertificateApiModel>> GetCertificateGroupTrustListAsync(int id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns the TrustList of the specified certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<X509CertificateApiModel>> GetCertificateGroupTrustListAsync(int id, System.Threading.CancellationToken cancellationToken);
 
+        /// <summary>
+        /// revoke the specified Certifice in the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task RevokeCertificateGroupCertAsync(int id, object certPemRaw);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// revoke the specified Certifice in the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task RevokeCertificateGroupCertAsync(int id, object certPemRaw, System.Threading.CancellationToken cancellationToken);
 
@@ -594,6 +672,9 @@ namespace GdsApi
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
 
+        /// <summary>
+        /// Returns all Certificate Groups of the GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CertificateGroupApiModel>> GetCertificateGroupsAsync()
         {
@@ -601,6 +682,9 @@ namespace GdsApi
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns all Certificate Groups of the GDS
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CertificateGroupApiModel>> GetCertificateGroupsAsync(System.Threading.CancellationToken cancellationToken)
         {
@@ -666,6 +750,9 @@ namespace GdsApi
             }
         }
 
+        /// <summary>
+        /// Returns the CA Certificate of the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<X509CertificateApiModel> GetCertificateGroupCAAsync(int id)
         {
@@ -673,6 +760,9 @@ namespace GdsApi
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns the CA Certificate of the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<X509CertificateApiModel> GetCertificateGroupCAAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
@@ -752,6 +842,9 @@ namespace GdsApi
             }
         }
 
+        /// <summary>
+        /// Regenerate the CA Certificate of the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<X509CertificateApiModel> PostCertificateGroupCAAsync(int id)
         {
@@ -759,6 +852,9 @@ namespace GdsApi
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Regenerate the CA Certificate of the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<X509CertificateApiModel> PostCertificateGroupCAAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
@@ -839,6 +935,9 @@ namespace GdsApi
             }
         }
 
+        /// <summary>
+        /// Returns the TrustList of the specified certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<X509CertificateApiModel>> GetCertificateGroupTrustListAsync(int id)
         {
@@ -846,6 +945,9 @@ namespace GdsApi
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Returns the TrustList of the specified certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<X509CertificateApiModel>> GetCertificateGroupTrustListAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
@@ -925,6 +1027,9 @@ namespace GdsApi
             }
         }
 
+        /// <summary>
+        /// revoke the specified Certifice in the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task RevokeCertificateGroupCertAsync(int id, object certPemRaw)
         {
@@ -932,6 +1037,9 @@ namespace GdsApi
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// revoke the specified Certifice in the specified Certificate Group
+        /// </summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task RevokeCertificateGroupCertAsync(int id, object certPemRaw, System.Threading.CancellationToken cancellationToken)
         {
@@ -1115,29 +1223,64 @@ namespace GdsApi
         }
     }
 
+    /// <summary>
+    /// A GDS registered Application
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ApplicationApiModel
     {
+        /// <summary>
+        /// The Guid identifying the Application
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid ApplicationId { get; set; }
 
+        /// <summary>
+        /// The Uri of the Application
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("applicationUri", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ApplicationUri { get; set; }
 
+        /// <summary>
+        /// The name of the Application
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("applicationName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ApplicationName { get; set; }
 
         [Newtonsoft.Json.JsonProperty("applicationType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int ApplicationType { get; set; }
+        public ApplicationType ApplicationType { get; set; }
 
         [Newtonsoft.Json.JsonProperty("productUri", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProductUri { get; set; }
 
+        /// <summary>
+        /// The gds signed certificate of the Application
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("certificate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public X509CertificateApiModel Certificate { get; set; }
 
     }
 
+    /// <summary>
+    /// Type of the registered OPC UA Application
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum ApplicationType
+    {
+
+        Server = 0,
+
+        Client = 1,
+
+        ClientAndServer = 2,
+
+        DiscoveryServer = 3,
+
+    }
+
+    /// <summary>
+    /// A X509 Certificate
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class X509CertificateApiModel
     {
@@ -1158,6 +1301,9 @@ namespace GdsApi
 
         [Newtonsoft.Json.JsonProperty("certificate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Certificate { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("issuer", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Issuer { get; set; }
 
     }
 
@@ -1190,17 +1336,35 @@ namespace GdsApi
 
     }
 
+    /// <summary>
+    /// Certificate Group of the GDS
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class CertificateGroupApiModel
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; set; }
+        public CertificateGroupType Id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("updateRequired", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool UpdateRequired { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ceritificate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public X509CertificateApiModel Ceritificate { get; set; }
+
+    }
+
+    /// <summary>
+    /// Type of the Certificate Group
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum CertificateGroupType
+    {
+
+        DefaultApplicationGroup = 615,
+
+        DefaultHttpsGroup = 649,
+
+        DefaultUserTokenGroup = 683,
 
     }
 

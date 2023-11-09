@@ -1,0 +1,21 @@
+﻿@page "/application/{Id:guid}"
+@using GdsApi;
+@inject IApplicationsGdsApi ApplicationsGdsApi
+
+<PageTitle>Application Details</PageTitle>
+
+<h1>Application Details</h1>
+
+<p>Details of the registered Application @application.ApplicationName</p>
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private ApplicationApiModel application = new ApplicationApiModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        application = await ApplicationsGdsApi.GetApplicationsAsync(Id);
+    }
+}

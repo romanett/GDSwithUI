@@ -1,0 +1,33 @@
+﻿@page "/certificate-group/{Id}"
+@using GdsApi;
+@inject ICertificateGroupsGdsApi CertificateGroupsGdsApi
+
+<PageTitle>CertificateGroup Details</PageTitle>
+
+<h1>CertificateGroup Details</h1>
+
+<p>Details of the CertificateGroup @certificateGroup.Id</p>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    public CertificateGroupType certGroupType { get; set; }
+
+    private CertificateGroupApiModel certificateGroup = new CertificateGroupApiModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        CertificateGroupType parsedId;
+        CertificateGroupType.TryParse(Id, out parsedId);
+        if(parsedId != 0)
+        {
+            certGroupType = parsedId;
+            var CertificateGroups = await CertificateGroupsGdsApi.GetCertificateGroupsAsync();
+            var resolvedCertificateGroup = CertificateGroups.Where(cg => cg.Id == certGroupType).FirstOrDefault();
+            if (resolvedCertificateGroup is not null)
+                certificateGroup = resolvedCertificateGroup;
+        }
+        
+    }
+}
