@@ -372,8 +372,40 @@
             "type": "string"
           },
           "certificate": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/X509CertificateApiModel"
+              }
+            ]
+          }
+        }
+      },
+      "X509CertificateApiModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "subject": {
+            "type": "string"
+          },
+          "thumbprint": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "notBefore": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
+          },
+          "notAfter": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "certificate": {
+            "type": "string"
           }
         }
       },
@@ -423,34 +455,6 @@
                 "$ref": "#/components/schemas/X509CertificateApiModel"
               }
             ]
-          }
-        }
-      },
-      "X509CertificateApiModel": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "subject": {
-            "type": "string"
-          },
-          "thumbprint": {
-            "type": "string"
-          },
-          "serialNumber": {
-            "type": "string"
-          },
-          "notBefore": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "notAfter": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "certificate": {
-            "type": "string"
           }
         }
       }

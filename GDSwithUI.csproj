@@ -6,8 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-GDSwithUI-ccd58113-c0ef-485a-b974-60f3ce2641dd</UserSecretsId>
   </PropertyGroup>
-
-	<ItemGroup>
+	
+  <ItemGroup>
 		<OpenApiReference Include="GdsApi\swagger.json" CodeGenerator="NSwagCSharp" Namespace="GdsApi">
 			<ClassName>{controller}GdsApi</ClassName>
 			<OutputPath>../GdsApi/GdsApi.cs</OutputPath>
@@ -27,5 +27,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+	
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="cd ./GdsApi&#xD;&#xA;del GdsApi.cs" />
+  </Target>
 
 </Project>

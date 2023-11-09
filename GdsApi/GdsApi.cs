@@ -1134,6 +1134,29 @@ namespace GdsApi
         public string ProductUri { get; set; }
 
         [Newtonsoft.Json.JsonProperty("certificate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public X509CertificateApiModel Certificate { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class X509CertificateApiModel
+    {
+        [Newtonsoft.Json.JsonProperty("subject", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Subject { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("thumbprint", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Thumbprint { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("serialNumber", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SerialNumber { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("notBefore", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? NotBefore { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("notAfter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? NotAfter { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("certificate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Certificate { get; set; }
 
     }
@@ -1178,29 +1201,6 @@ namespace GdsApi
 
         [Newtonsoft.Json.JsonProperty("ceritificate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public X509CertificateApiModel Ceritificate { get; set; }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class X509CertificateApiModel
-    {
-        [Newtonsoft.Json.JsonProperty("subject", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Subject { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("thumbprint", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Thumbprint { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("serialNumber", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SerialNumber { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("notBefore", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? NotBefore { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("notAfter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? NotAfter { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("certificate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Certificate { get; set; }
 
     }
 
