@@ -6,13 +6,40 @@
 
 <h1>Application Details</h1>
 
-<p>Details of the registered Application @application.ApplicationName</p>
+@if (application is null)
+{
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+}
+else
+{
+    <p>Details of the registered Application @application.ApplicationName</p>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            Application
+        </div>
+        <div class="card-body">
+            <p class="card-text">@application.ApplicationType</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            Certificate
+        </div>
+        <div class="card-body">
+            <p class="card-text">@application.ApplicationType</p>
+        </div>
+    </div>
+}
 
 @code {
     [Parameter]
     public Guid Id { get; set; }
 
-    private ApplicationApiModel application = new ApplicationApiModel();
+    private ApplicationApiModel? application;
 
     protected override async Task OnInitializedAsync()
     {
