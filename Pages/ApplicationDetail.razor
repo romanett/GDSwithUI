@@ -21,7 +21,11 @@ else
             Application
         </div>
         <div class="card-body">
-            <p class="card-text">@application.ApplicationType</p>
+            <p>@application.ApplicationName</p>
+            <p>@application.ApplicationId</p>
+            <p>@application.ApplicationType</p>
+            <p>@application.ApplicationUri</p>
+            <p>@application.ProductUri</p>
         </div>
     </div>
 
@@ -30,7 +34,13 @@ else
             Certificate
         </div>
         <div class="card-body">
-            <p class="card-text">@application.ApplicationType</p>
+            <p class="card-text">@application.Certificate.Subject</p>
+            <p class="card-text">@application.Certificate.Issuer</p>
+            <p class="card-text">@application.Certificate.Thumbprint</p>
+            <p class="card-text">@application.Certificate.SerialNumber</p>
+            <p class="card-text">@application.Certificate.NotBefore</p>
+            <p class="card-text">@application.Certificate.NotAfter</p>
+            <button type="button" class="btn btn-dark">Download Certificate</button>
         </div>
     </div>
 }
