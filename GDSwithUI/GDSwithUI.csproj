@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.20.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+	<ItemGroup>
+		<OpenApiReference Include="GdsApi\swagger.json" CodeGenerator="NSwagCSharp" Namespace="GdsApi">
+			<ClassName>{controller}GdsApi</ClassName>
+			<OutputPath>../GdsApi/GdsApi.cs</OutputPath>
+			<Options>/GenerateClientInterfaces:true</Options>
+			<SourceUri>https://localhost:8081/swagger/GDSwithREST%20API/swagger.json</SourceUri>
+		</OpenApiReference>
+	</ItemGroup>
+
+
+</Project>
