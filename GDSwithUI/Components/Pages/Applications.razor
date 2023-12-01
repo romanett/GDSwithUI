@@ -44,6 +44,16 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        applications = new List<ApplicationApiModel>(await ApplicationsGdsApi.GetApplicationsAllAsync());
+        try
+        {
+            applications = new List<ApplicationApiModel>(
+                await ApplicationsGdsApi.GetApplicationsAllAsync());
+        }
+        catch (ApiException e)
+        {
+            if (e.StatusCode == 404)
+                return;
+            throw;
+        }
     }
 }

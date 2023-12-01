@@ -14,12 +14,26 @@
 }
 else
 {
-    <p>Details of the CertificateGroup @certificateGroup.Id</p>
+    
 
     @if (NoCertificateGroupFound)
     {
         <div class="alert alert-danger" role="alert">
             No CertificateGroup found matching the provided Identifier!
+        </div>
+    }
+    else
+    {
+        <p>Details of the CertificateGroup @certificateGroup.Id</p>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Certificate Group
+            </div>
+            <div class="card-body">
+                <p>Name: @certificateGroup.Id</p>
+                <p>Update required: @certificateGroup.UpdateRequired</p>
+            </div>
         </div>
     }
 }
@@ -40,12 +54,22 @@ else
         if(parsedId != 0)
         {
             certGroupType = parsedId;
-            var CertificateGroups = await CertificateGroupsGdsApi.GetCertificateGroupsAsync();
-            var resolvedCertificateGroup = CertificateGroups.Where(cg => cg.Id == certGroupType).FirstOrDefault();
-            if (resolvedCertificateGroup is not null)
-                certificateGroup = resolvedCertificateGroup;
-            else
-                NoCertificateGroupFound = true;
+            
+            try
+            {
+                var CertificateGroups = await CertificateGroupsGdsApi.GetCertificateGroupsAsync();
+                var resolvedCertificateGroup = CertificateGroups.Where(cg => cg.Id == certGroupType).FirstOrDefault();
+                if (resolvedCertificateGroup is not null)
+                    certificateGroup = resolvedCertificateGroup;
+                else
+                    NoCertificateGroupFound = true;
+            }
+            catch (ApiException e)
+            {
+                if (e.StatusCode == 404)
+                    return;
+                throw;
+            }
         }
         else
         {

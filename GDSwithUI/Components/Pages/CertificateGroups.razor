@@ -40,6 +40,16 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        certificteGroups = new List<CertificateGroupApiModel>(await CertificateGroupsGdsApi.GetCertificateGroupsAsync());
+        try
+        {
+            certificteGroups = new List<CertificateGroupApiModel>(
+                await CertificateGroupsGdsApi.GetCertificateGroupsAsync());
+        }
+        catch (ApiException e)
+        {
+            if (e.StatusCode == 404)
+                return;
+            throw;
+        }
     }
 }
