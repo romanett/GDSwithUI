@@ -1,0 +1,26 @@
+﻿@using GdsApi
+
+@if (Certificate is null)
+{
+    
+}
+else
+{
+<div class="card m-2" style="width: 18rem;" margin="5">
+    <div class="card-header">
+        Certificate
+    </div>
+    <div class="card-body">
+        <p class="card-text"><strong>Subject:</strong> @Certificate.Subject</p>
+        <p class="card-text"><strong>Issuer:</strong> @Certificate.Issuer</p>
+        <p class="card-text"><strong>Thumbprint:</strong> @Certificate.Thumbprint</p>
+        <p class="card-text"><strong>From:</strong> @Certificate.NotBefore</p>
+        <p class="card-text"><strong>To:</strong> @Certificate.NotAfter</p>
+        <button type="button" class="btn btn-dark">Download Certificate</button>
+    </div>
+</div>
+}
+@code {
+    [Parameter]
+    public X509CertificateApiModel? Certificate { get; set; }
+}

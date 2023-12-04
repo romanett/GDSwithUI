@@ -16,33 +16,21 @@
 else
 {
     <p>Details of the registered Application @application.ApplicationName</p>
-
-    <div class="card" style="width: 18rem;">
+     
+    <div class="d-flex flex-row">
+    <div class="card m-2" style="width: 18rem;">
         <div class="card-header">
             Application
         </div>
         <div class="card-body">
-            <p>@application.ApplicationName</p>
-            <p>@application.ApplicationId</p>
-            <p>@application.ApplicationType</p>
-            <p>@application.ApplicationUri</p>
-            <p>@application.ProductUri</p>
+                <p class="card-text"><strong>Name:</strong> @application.ApplicationName</p>
+                <p class="card-text"><strong>Id:</strong> @application.ApplicationId</p>
+                <p class="card-text"><strong>Type:</strong> @application.ApplicationType</p>
+                <p class="card-text"><strong>URI:</strong> @application.ApplicationUri</p>
+                <p class="card-text"><strong>Product URI:</strong> @application.ProductUri</p>
         </div>
     </div>
-
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-            Certificate
-        </div>
-        <div class="card-body">
-            <p class="card-text">@application.Certificate.Subject</p>
-            <p class="card-text">@application.Certificate.Issuer</p>
-            <p class="card-text">@application.Certificate.Thumbprint</p>
-            <p class="card-text">@application.Certificate.SerialNumber</p>
-            <p class="card-text">@application.Certificate.NotBefore</p>
-            <p class="card-text">@application.Certificate.NotAfter</p>
-            <button type="button" class="btn btn-dark">Download Certificate</button>
-        </div>
+    <CertificateCard Certificate="@application.Certificate"></CertificateCard>
     </div>
 }
 

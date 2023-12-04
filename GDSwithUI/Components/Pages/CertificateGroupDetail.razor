@@ -25,15 +25,19 @@ else
     else
     {
         <p>Details of the CertificateGroup @certificateGroup.Id</p>
+        <div class="d-flex flex-row">
 
-        <div class="card" style="width: 18rem;">
+        <div class="card m-2" style="width: 18rem;">
             <div class="card-header">
                 Certificate Group
             </div>
             <div class="card-body">
-                <p>Name: @certificateGroup.Id</p>
-                <p>Update required: @certificateGroup.UpdateRequired</p>
+                    <p class="card-text"><strong>Name:</strong> @certificateGroup.Id</p>
+                    <p class="card-text"><strong>Update required:</strong> @certificateGroup.UpdateRequired</p>
             </div>
+        </div>
+        <CertificateCard Certificate="@certificateGroup.Ceritificate"></CertificateCard>
+        
         </div>
     }
 }
